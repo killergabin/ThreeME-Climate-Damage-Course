@@ -1,0 +1,73 @@
+\section{Le modèle ThreeME standard}
+
+\subsection{Structure générale}
+Le modèle ThreeME est un modèle d'équilibre général calculable multi-sectoriel, caractérisé par :
+\begin{itemize}
+    \item Une structure néo-keynésienne
+    \item Des rigidités nominales
+    \item Une désagrégation sectorielle fine
+    \item Une modélisation explicite de l'énergie
+\end{itemize}
+
+\subsection{Équations fondamentales}
+La production sectorielle suit une fonction CES imbriquée :
+\begin{equation}
+Y_{j,t} = \left[\alpha_j(A_{K,t}K_{j,t})^{\frac{\sigma-1}{\sigma}} + 
+(1-\alpha_j)(A_{L,t}L_{j,t})^{\frac{\sigma-1}{\sigma}}\right]^{\frac{\sigma}{\sigma-1}}
+\end{equation}
+
+où :
+\begin{itemize}
+    \item $Y_{j,t}$ est la production du secteur j
+    \item $K_{j,t}$ est le stock de capital
+    \item $L_{j,t}$ est le travail
+    \item $\sigma$ est l'élasticité de substitution
+    \item $\alpha_j$ est le paramètre de distribution
+\end{itemize}
+
+\section{Introduction des contraintes d'offre}
+
+\subsection{Secteur agricole}
+La production agricole est désormais contrainte par :
+
+\begin{equation}
+Y_{agr,t} = \min(Y_{pot,t}, D_t)
+\end{equation}
+
+où $Y_{pot,t}$ est la production potentielle affectée par les rendements.
+
+\subsection{Ajustement des prix}
+Le mécanisme d'ajustement des prix devient :
+
+\begin{equation}
+P_t = P_{t-1}\left(1 + \phi\frac{D_t - Y_{pot,t}}{Y_{pot,t}}\right)
+\end{equation}
+
+où $\phi$ est la vitesse d'ajustement.
+
+\section{Intégration des dommages climatiques}
+
+\subsection{Canaux de transmission}
+Les dommages climatiques affectent l'économie via :
+\begin{itemize}
+    \item La productivité des facteurs
+    \item Les rendements agricoles
+    \item La production d'énergie
+    \item Les événements extrêmes
+    \item Le commerce international
+\end{itemize}
+
+\subsection{Spécification dynamique}
+L'évolution du système est décrite par :
+
+\begin{equation}
+\begin{pmatrix}
+Y_t \\ P_t \\ L_t \\ I_t
+\end{pmatrix} = 
+M(\Delta T)\begin{pmatrix}
+Y_{t-1} \\ P_{t-1} \\ L_{t-1} \\ I_{t-1}
+\end{pmatrix} +
+\begin{pmatrix}
+\epsilon^Y_t \\ \epsilon^P_t \\ \epsilon^L_t \\ \epsilon^I_t
+\end{pmatrix}
+\end{equation}
